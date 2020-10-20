@@ -247,6 +247,10 @@ Additional parameters can be passed in from the policy - i.e. action_desc, viola
 			{% set columnNames = ['GroupName','tag.Name','GroupId','VpcId'] %}
 			{{ createTable(columnNames, resources, '80') }}
 			
+		{% elif policy['resource'] == "iam-role" %}
+                        {% set columnNames = ['RoleName','CreateDate','Arn'] %}
+                        {{ createTable(columnNames, resources, '80') }}
+			
 		{% elif policy['resource'] == "simpledb" %}
 			{% set columnNames = ['DomainName'] %}
 			{{ createTable(columnNames, resources, '60') }}	
